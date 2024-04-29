@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!(emailResult.isSuccess() && passwordResult.isSuccess()))
             return;
 
+
     }
 
 
