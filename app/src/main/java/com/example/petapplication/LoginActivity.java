@@ -29,29 +29,31 @@ public class LoginActivity extends AppCompatActivity {
         Editable emailField = binding.loginEmailAddress.getText();
         if (emailField == null) {
             binding.loginEmailAddress.setError(getString(R.string.text_validation_error_blank_text));
-        } else {
-            String emailText = emailField.toString();
-            ValidationResult result = BaseValidator.validate(
-                    new EmptyValidator(emailText),
-                    new EmailValidator(emailText)
-            );
-            binding.loginEmailAddress.setError(
-                    result.isSuccess() ? null : getString(result.getMessage())
-            );
         }
         Editable passwordField = binding.loginPassword.getText();
         if (passwordField == null) {
             binding.loginPassword.setError(getString(R.string.text_validation_error_blank_text));
-        } else {
-            String passwordText = passwordField.toString();
-            ValidationResult result = BaseValidator.validate(
-                    new EmptyValidator(passwordText),
-                    new PasswordValidator(passwordText)
-            );
-            binding.loginPassword.setError(
-                    result.isSuccess() ? null : getString(result.getMessage())
-            );
         }
+        if (emailField == null || passwordField == null)
+            return;
+        String emailText = emailField.toString();
+        ValidationResult emailResult = BaseValidator.validate(
+                new EmptyValidator(emailText),
+                new EmailValidator(emailText)
+        );
+        binding.loginEmailAddress.setError(
+                emailResult.isSuccess() ? null : getString(emailResult.getMessage())
+        );
+        String passwordText = passwordField.toString();
+        ValidationResult passwordResult = BaseValidator.validate(
+                new EmptyValidator(passwordText),
+                new PasswordValidator(passwordText)
+        );
+        binding.loginPassword.setError(
+                passwordResult.isSuccess() ? null : getString(passwordResult.getMessage())
+        );
+        if (!(emailResult.isSuccess() && passwordResult.isSuccess()))
+            return;
 
     }
 
