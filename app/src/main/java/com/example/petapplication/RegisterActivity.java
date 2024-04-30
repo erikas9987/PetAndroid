@@ -3,18 +3,14 @@ package com.example.petapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
 
 import com.example.petapplication.databinding.ActivityRegisterBinding;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
 
