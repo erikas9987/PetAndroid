@@ -5,8 +5,11 @@
     <string name="logo_name">PET app</string>
     <string name="email_text">Email</string>
     <string name="password_text">Password</string>
+    <string name="first_name_text">First name</string>
+    <string name="last_name_text">Last name</string>
+    <string name="birth_date_text">Birth date</string>
     <string name="text_validation_success">Text successfully validated!</string>
     <string name="text_validation_error_blank_text">Text cannot be blank.</string>
     <string name="text_validation_error_wrong_email">Please enter a valid email!\n</string>
-    <string name="text_validation_error_password_too_short">Please proivde a password not shorter than 8 symbols!</string>
+    <string name="text_validation_error_password_too_short">Please provide a password not shorter than 8 symbols!</string>
 </resources>
