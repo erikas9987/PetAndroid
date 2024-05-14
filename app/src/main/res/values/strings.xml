@@ -12,4 +12,5 @@
     <string name="text_validation_error_blank_text">Text cannot be blank.</string>
     <string name="text_validation_error_wrong_email">Please enter a valid email!\n</string>
     <string name="text_validation_error_password_too_short">Please provide a password not shorter than 8 symbols!</string>
+    <string name="text_validation_error_birth_date">You must not be younger than 14 years to use this app.</string>
 </resources>
