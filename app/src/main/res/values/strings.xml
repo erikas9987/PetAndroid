@@ -13,4 +13,12 @@
     <string name="text_validation_error_wrong_email">Please enter a valid email!\n</string>
     <string name="text_validation_error_password_too_short">Please provide a password not shorter than 8 symbols!</string>
     <string name="text_validation_error_birth_date">You must not be younger than 14 years to use this app.</string>
+    <string name="text_validation_error_forward_date">This date cannot be forward dated</string>
+    <string name="text_validation_error_not_zero">Please provide a value that is higher than zero!</string>
+    <string name="pet_name_text">Pet name</string>
+    <string name="pet_species_text">Pet species</string>
+    <string name="pet_gender_text">Gender</string>
+    <string name="weight_text">Weight (g)</string>
+    <string name="height_text">Height (cm)</string>
+    <string name="add_a_pet_text">Add a pet</string>
 </resources>

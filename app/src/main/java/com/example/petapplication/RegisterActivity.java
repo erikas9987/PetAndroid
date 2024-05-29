@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -117,8 +118,9 @@ public class RegisterActivity extends AppCompatActivity {
                 jsonObject,
                 response -> {
                     try {
-                        System.out.println("Registration token: " + response.getString("token"));
-                        saveToken(response.getString("token"));
+                        saveToken(response.getString("token"), response.getInt("id"));
+                        Intent intent = new Intent(RegisterActivity.this, AddPetActivity.class);
+                        startActivity(intent);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -132,10 +134,11 @@ public class RegisterActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-    private void saveToken(String token) {
+    private void saveToken(String token, int userId) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("token", token);
-        editor.apply();
+        editor.putString("token", token)
+            .putInt("id", userId)
+            .apply();
     }
 
     private void validateField(TextInputEditText field, List<ValidationResult> results, Class<? extends BaseValidator>... validatorClasses) {

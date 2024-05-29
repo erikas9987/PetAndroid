@@ -1,6 +1,7 @@
 package com.example.petapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -90,25 +91,32 @@ public class LoginActivity extends AppCompatActivity {
                 jsonObject,
                 response -> {
                     try {
-                        saveToken(response.getString("token"));
+                        saveToken(response.getString("token"), response.getInt("id"));
+                        Intent intent = new Intent(LoginActivity.this, AddPetActivity.class);
+                        startActivity(intent);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 },
-                error -> Snackbar.make(
-                        view,
-                        "Failed to log in!",
-                        Snackbar.LENGTH_LONG
-                ).show()
+                error -> {
+                    System.err.println("Look for this!");
+                    error.printStackTrace();
+                    Snackbar.make(
+                            view,
+                            "Failed to log in!",
+                            Snackbar.LENGTH_LONG
+                    ).show();
+                }
         );
 
         queue.add(request);
     }
 
-    private void saveToken(String token) {
+    private void saveToken(String token, int userId) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("token", token);
-        editor.apply();
+        editor.putString("token", token)
+                .putInt("id", userId)
+                .apply();
     }
 
 
